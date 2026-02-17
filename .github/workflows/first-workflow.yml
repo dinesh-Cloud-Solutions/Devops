@@ -1,0 +1,11 @@
+name: First-workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: greetings
+        run : echo "Hii,Helloworld"
+      - name: exit
+        run : echo "Good,Bye"
+        
