@@ -1,14 +1,30 @@
-name: First-workflow
+name: frontend-ci
 
-on: workflow_dispatch
+on: 
+  push:
+    branches: 
+      - main
 
 jobs:
-  first-job:
-    runs-on: ubuntu-24.04
+  build_and_test:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: greetings
-        run: echo "Hi, Hello world"
 
-      - name: exit
-        run: echo "Good, Bye"
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup nodejs
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: dependcices
+        run: npm install
+
+      - name: build as package
+        run: npm build
+
+      - name: test
+        run: npm test
+
