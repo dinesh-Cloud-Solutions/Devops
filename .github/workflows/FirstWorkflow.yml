@@ -29,3 +29,22 @@ jobs:
       - name: test
         run: npm test
 
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup nodejs
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: dependcices
+        run: npm install
+
+      - name: build as package
+        run: npm run build
+
+      - name: test
+        run: npm test
+
+      - name: deploy
+        run: echo "hello world"
